@@ -23,19 +23,104 @@
   </div>
   </nav>
 
-  <div class="hero-image">
-    <img src="images/hero.jpg" alt="Valorant" class="img-fluid" style="width: 100%; height: auto;">
-    <div class="position-absolute top-50 start-0 translate-middle-y text-white text-start" style="padding-left: 300px;">
-      <h1>Valorant</h1>
-      <p>Fedezd fel a Valorant fegyvereit és képességeit!</p>
+  <div class="hero-image position-relative vh-100">
+    <img src="images/hero.jpg" alt="Valorant" class="img-fluid w-100 h-100" style="object-fit: cover;">
+    <div class="position-absolute top-50 start-50 translate-middle text-white text-center text-md-start p-4">
+      <h1 class="display-4 display-md-3 display-sm-5">Valorant</h1>
+      <p class="lead fs-5 fs-md-4">Fedezd fel a Valorant fegyvereit és képességeit!</p>
     </div>
   </div>
 
-  <div class="container col-12 col-md-3" style="padding-top: 20px;">
-    <h1>Valorant Fegyverek</h1>
-    <ul id="weapon-list"></ul>
-    <ul id="agent-list"></ul>
-    <ul id="map-list"></ul>
+  <div class="container col-12" style="padding-top: 100px;">
+    <h1>Újdonságok</h1>
+    <ul id="news-list">
+      // Kártyákba szervezett hírek
+      <li class="card mb-3">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="images/news1.jpg" class="img-fluid rounded-start" alt="News 1">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Új fegyver érkezett!</h5>
+              <p class="card-text">Fedezd fel az új fegyvert és annak képességeit!</p>
+              <a href="#" class="btn btn-primary">Tudj meg többet</a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="card mb-3">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="images/news2.jpg" class="img-fluid rounded-start" alt="News 2">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Új agent érkezett!</h5>
+              <p class="card-text">Ismerd meg az új agent képességeit és stratégiáit!</p>
+              <a href="#" class="btn btn-primary">Tudj meg többet</a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="card mb-3">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="images/news3.jpg" class="img-fluid rounded-start" alt="News 3">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Új map érkezett!</h5>
+              <p class="card-text">Fedezd fel az új mapot és annak titkait!</p>
+              <a href="#" class="btn btn-primary">Tudj meg többet</a>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="hero-image position-relative" style="height: 50vh; padding-top: 100px;">
+    <img src="images/season.avif" alt="Valorant" class="img-fluid w-100 h-100" style="object-fit: cover;">
+    <div class="position-absolute top-50 start-50 translate-middle text-white text-center text-md-start p-4">
+      <h1 class="display-4 display-md-3 display-sm-5">Új Season</h1>
+      <p class="lead fs-5 fs-md-4">Fedezd fel az új season tartalmát!</p>
+    </div>
+  </div>
+
+  <div class="container" style="padding-top: 100px;">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Fegyverek</h2>
+        <h3>Fedezd fel a Valorant fegyvereit és azok képességeit! Minden fegyvernek megvan a maga egyedi stílusa és használati módja. Ismerd meg a legjobb stratégiákat és taktikákat a győzelem érdekében!</p>
+            <button class="btn btn-primary"><a href="">Tudj meg többet</a></button>
+      </div>
+      <div class="col-md-6">
+        <img src="images/season.avif" alt="Season" class="img-fluid rounded-start">
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col-md-6">
+        <img src="images/season.avif" alt="Season" class="img-fluid rounded-start">
+      </div>
+      <div class="col-md-6">
+        <h2>Agentek</h2>
+        <h3>Fedezd fel a Valorant agentjeit és azok képességeit! Minden agentnek megvan a maga egyedi stílusa és használati módja. Ismerd meg a legjobb stratégiákat és taktikákat a győzelem érdekében!</p>
+            <button class="btn btn-primary"><a href="">Tudj meg többet</a></button>
+      </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Mapok</h2>
+        <h3>Fedezd fel a Valorant fegyvereit és azok képességeit! Minden fegyvernek megvan a maga egyedi stílusa és használati módja. Ismerd meg a legjobb stratégiákat és taktikákat a győzelem érdekében!</p>
+            <button class="btn btn-primary"><a href="">Tudj meg többet</a></button>
+      </div>
+      <div class="col-md-6">
+        <img src="images/season.avif" alt="Season" class="img-fluid rounded-start">
+      </div>
   </div>
 
   <script type="module" src="ts/main.ts"></script>
