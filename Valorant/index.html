@@ -1,13 +1,40 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valorant Fegyverek</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: gray;
+      padding: 20px;
+    }
+    ul#weapon-list {
+      list-style-type: none;
+      padding: 0;
+    }
+    ul#weapon-list li {
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      max-width: 300px;
+    }
+    ul#weapon-list img {
+      display: block;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Valorant Fegyverek</h1>
+  <ul id="weapon-list"></ul>
+  <ul id="agent-list"></ul>
+  <ul id="map-list"></ul>
+
+
+
+  <script type="module" src="ts/main.ts"></script>
+</body>
 </html>
