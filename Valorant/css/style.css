@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+body{
+    background-image: url('https://wallpaperaccess.com/full/1281954.jpg');
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+}
+
+h1{
+    color: white;
+    font-size: 150px;
+    margin-top: 20px;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+p{
+    color: white;
+    font-size: 30px;
+    margin-top: 20px;
+    text-shadow: 2px 2px 4px #000000;
+}

@@ -3,38 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
   <title>Valorant Fegyverek</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: gray;
-      padding: 20px;
-    }
-    ul#weapon-list {
-      list-style-type: none;
-      padding: 0;
-    }
-    ul#weapon-list li {
-      border: 1px solid #ddd;
-      padding: 15px;
-      margin-bottom: 10px;
-      border-radius: 8px;
-      max-width: 300px;
-    }
-    ul#weapon-list img {
-      display: block;
-      margin-top: 5px;
-    }
-  </style>
 </head>
 <body>
-  <h1>Valorant Fegyverek</h1>
-  <ul id="weapon-list"></ul>
-  <ul id="agent-list"></ul>
-  <ul id="map-list"></ul>
+  <nav class="navbar navbar-light navbar-expand-lg navbar-fixed-top fixed-top bg-white clean-navbar">
+    <div class="container"><a class="navbar-brand logo" href="index.html">
+      <img src="images/logo.png" alt="Valorant" height="80px">
+    </a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navcol-1">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="html/index.html">Főoldal</a></li>
+        <li class="nav-item"><a class="nav-link" href="html/guns.html">Fegyverek</a></li>
+        <li class="nav-item"><a class="nav-link" href="html/agents.html">Agentek</a></li>
+        <li class="nav-item"><a class="nav-link" href="html/maps.html">Mapok</a></li>
+      </ul>
+    </div>
+  </div>
+  </nav>
 
+  <div class="hero-image">
+    <img src="images/hero.jpg" alt="Valorant" class="img-fluid" style="width: 100%; height: auto;">
+    <div class="position-absolute top-50 start-0 translate-middle-y text-white text-start" style="padding-left: 300px;">
+      <h1>Valorant</h1>
+      <p>Fedezd fel a Valorant fegyvereit és képességeit!</p>
+    </div>
+  </div>
 
+  <div class="container col-12 col-md-3" style="padding-top: 20px;">
+    <h1>Valorant Fegyverek</h1>
+    <ul id="weapon-list"></ul>
+    <ul id="agent-list"></ul>
+    <ul id="map-list"></ul>
+  </div>
 
   <script type="module" src="ts/main.ts"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 </body>
 </html>
