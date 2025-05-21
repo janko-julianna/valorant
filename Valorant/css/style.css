@@ -1,37 +1,165 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
-
-body{
-    background-size: cover;
-    font-family: 'Poppins', sans-serif;
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0f0f10;
+  color: #ffffff;
 }
 
-h1{
-    color: white;
+.navbar {
+  background-color: #1f1f21;
+}
+
+.navbar-brand img {
+  filter: brightness(0) invert(1);
+}
+
+.nav-link {
+  color: #ffffff !important;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  color: #ff4655 !important;
+}
+
+.hero {
+  position: relative;
+  height: 100vh;
+  background: url('../images/hero.jpg') center center/cover no-repeat;
+  color: white;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 17%;
+  transform: translateY(-50%);
+  max-width: 600px;
+  z-index: 2;
+}
+
+.display-3 {
+  font-size: 7rem;
+  font-weight: 700;
+}
+
+.fs-4 {
+  font-size: 1.5rem;
+}
+
+.fs-5 {
+  font-size: 1.25rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  border-left: 5px solid #ff4655;
+  padding-left: 15px;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.card {
+  background-color: #1f1f21;
+  color: #ffffff;
+  border: none;
+}
+
+.card img {
+  object-fit: cover;
+  height: 200px;
+}
+
+.btn-primary {
+  background-color: #ff4655;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #e03c4f;
+}
+
+.hero-secondary {
+  height: 50vh;
+  background: url('../images/season.avif') center center/cover no-repeat;
+  position: relative;
+}
+
+.hero-secondary .text {
+  position: absolute;
+  top: 50%;
+  left: 17%;
+  transform: translateY(-50%);
+  color: white;
+}
+
+footer {
+  background: #181a1b;
+  color: #fff;
+  padding: 2rem 0 1rem 0;
+  margin-top: 3rem;
+  border-radius: 2rem 2rem 0 0;
+  box-shadow: 0 -2px 16px rgba(0, 0, 0, 0.12);
+}
+
+footer a {
+  color: #e94444;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+footer a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.section-block {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  padding: 80px 0;
+  z-index: 1;
+}
+
+.section-block::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 15, 15, 0.8);
+  z-index: 0;
+}
+
+.section-block > .container {
+  position: relative;
+  z-index: 2;
+}
+
+.bg-weapons {
+  background-image: url('../images/guns.png');
+}
+
+.bg-agents {
+  background-image: url('../images/agents.jpg');
+}
+
+.bg-maps {
+  background-image: url('../images/maps.jpg');
+}
+
+@media (max-width: 767px) {
+  .section-title {
     text-align: center;
-    margin-top: 20px;
-    text-shadow: 2px 2px 4px #000000;
-}
-
-p{
-    color: white;
-    text-align: center;
-    font-size: 30px;
-    margin-top: 20px;
-    text-shadow: 2px 2px 4px #000000;
-}
-
-h3{
-    color: white;
-    font-size: 30px;
-    margin-top: 20px;
-    text-shadow: 2px 2px 4px #000000;
-}
-
-a{
-    color: white;
-    text-align: center;
-    font-size: 30px;
-    margin-top: 20px;
-    text-shadow: 2px 2px 4px #000000;
-    text-decoration: none;
+    border-left: none;
+    border-bottom: 3px solid #ff4655;
+    padding-left: 0;
+    padding-bottom: 10px;
+  }
 }
