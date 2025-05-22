@@ -1,11 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Valorant Agents</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    /* Az általad megadott CSS-ből a fontosabb részek */
+
+    body {
+      font-family: "VALORANT", Consolas, 'Courier New', monospace;
+      background-color: #0f0f10;
+      color: #ffffff;
+      margin: 0;
+      padding: 0 20px 40px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 40px 0 30px 0;
+      color: #ff4655;
+      text-shadow: 0 0 8px rgba(255, 70, 85, 0.7);
+      user-select: none;
+    }
+
+    #agent-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-bottom: 30px;
+    }
+
+    .card {
+      background-color: #1f1f21;
+      color: #fff;
+      border-radius: 1.25rem;
+      box-shadow: 0 6px 18px rgba(255, 70, 85, 0.15);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      user-select: none;
+    }
+
+    .card:hover {
+      transform: translateY(-12px) scale(1.03);
+      box-shadow: 0 20px 40px rgba(255, 70, 85, 0.45);
+    }
+
+    .card-img-top {
+      width: 100%;
+      background: linear-gradient(135deg, #2b2b2d 0%, #18181a 100%);
+      border-bottom-left-radius: 1.25rem;
+      border-bottom-right-radius: 1.25rem;
+      object-fit: contain;
+      transition: transform 0.4s ease;
+      box-shadow: inset 0 0 12px rgba(255, 70, 85, 0.25);
+    }
+
+    .card:hover .card-img-top {
+      transform: scale(1.07);
+    }
+
+    .card img.agent-icon {
+      width: 100px;
+      height: 100px;
+      margin: 15px auto 10px auto;
+      display: block;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(255, 70, 85, 0.6);
+      background: #111;
+    }
+
+    .card-body {
+      flex-grow: 1;
+      padding: 0 20px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-title {
+      font-weight: 800;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      text-align: center;
+      color: #ff4655;
+      text-shadow: 0 0 6px rgba(255, 70, 85, 0.6);
+    }
+
+    .card-text {
+      flex-grow: 1;
+      font-size: 1rem;
+      color: #ddd;
+      margin-bottom: 15px;
+      text-align: center;
+      line-height: 1.4;
+    }
+  </style>
 </head>
 <body>
-    <h1>agents</h1>
+  <h1>Valorant Agents</h1>
+  <ul id="agent-list"></ul>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('https://valorant-api.com/v1/agents?isPlayableCharacter=true')
+        .then(response => response.json())
+        .then(data => {
+          const agents = data.data;
+          const agentList = document.getElementById('agent-list');
+
+          agents.forEach(agent => {
+            const li = document.createElement('li');
+            li.classList.add('card');
+
+            li.innerHTML = `
+              <img class="agent-icon" src="${agent.displayIcon}" alt="${agent.displayName}" />
+              <div class="card-body">
+                <h2 class="card-title">${agent.displayName}</h2>
+                <p class="card-text">${agent.description}</p>
+              </div>
+            `;
+
+            agentList.appendChild(li);
+          });
+        })
+        .catch(err => {
+          console.error('Hiba az API hívásnál:', err);
+          const agentList = document.getElementById('agent-list');
+          agentList.innerHTML = '<p style="text-align:center; color:#ff4655;">Nem sikerült betölteni az ügynököket.</p>';
+        });
+    });
+  </script>
 </body>
 </html>
