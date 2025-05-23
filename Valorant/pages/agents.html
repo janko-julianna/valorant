@@ -1,141 +1,123 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Valorant Agents</title>
-  <link rel="stylesheet" href="../css/style.css" />
-  <style>
-    /* Az általad megadott CSS-ből a fontosabb részek */
+  <!DOCTYPE html>
+  <html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Valorant Agentek</title>
+  </head>
+  <body>
 
-    body {
-      font-family: "VALORANT", Consolas, 'Courier New', monospace;
-      background-color: #0f0f10;
-      color: #ffffff;
-      margin: 0;
-      padding: 0 20px 40px 20px;
-    }
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg shadow-sm">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="../images/logo.png" alt="Valorant" height="60">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="../index.html">Fooldal</a></li>
+            <li class="nav-item"><a class="nav-link" href="../pages/guns.html">Fegyverek</a></li>
+            <li class="nav-item"><a class="nav-link" href="../pages/agents.html">Agentek</a></li>
+            <li class="nav-item"><a class="nav-link" href="../pages/maps.html">Mapok</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-    h1 {
-      text-align: center;
-      margin: 40px 0 30px 0;
-      color: #ff4655;
-      text-shadow: 0 0 8px rgba(255, 70, 85, 0.7);
-      user-select: none;
-    }
+    <section class="container py-5 text-center">
+      <h1 class="section-title">Valorant Agentek</h1>
+      <div class="row g-4" id="agent-list"></div>
+    </section>
 
-    #agent-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding-bottom: 30px;
-    }
+      <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="row align-items-center mb-3">
+          <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+            <img src="../images/logo.png" alt="Valorant" height="40" class="me-2 align-middle">
+            <span class="fw-bold fs-5 align-middle">Valorant</span>
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+            <a href="../index.html" class="me-3">Fooldal</a>
+            <a href="../pages/guns.html" class="me-3">Fegyverek</a>
+            <a href="../pages/agents.html" class="me-3">Agentek</a>
+            <a href="../pages/maps.html">Mapok</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col text-center small">
+            &copy; 2025 Valorant
+          </div>
+        </div>
+      </div>
+    </footer>
 
-    .card {
-      background-color: #1f1f21;
-      color: #fff;
-      border-radius: 1.25rem;
-      box-shadow: 0 6px 18px rgba(255, 70, 85, 0.15);
-      overflow: hidden;
-      cursor: pointer;
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      user-select: none;
-    }
 
-    .card:hover {
-      transform: translateY(-12px) scale(1.03);
-      box-shadow: 0 20px 40px rgba(255, 70, 85, 0.45);
-    }
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    .card-img-top {
-      width: 100%;
-      background: linear-gradient(135deg, #2b2b2d 0%, #18181a 100%);
-      border-bottom-left-radius: 1.25rem;
-      border-bottom-right-radius: 1.25rem;
-      object-fit: contain;
-      transition: transform 0.4s ease;
-      box-shadow: inset 0 0 12px rgba(255, 70, 85, 0.25);
-    }
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        loadAgents();
+      });
 
-    .card:hover .card-img-top {
-      transform: scale(1.07);
-    }
+      async function loadAgents() {
+        const list = document.getElementById("agent-list");
+        try {
+          const response = await axios.get("https://valorant-api.com/v1/agents?isPlayableCharacter=true");
+          const agents = response.data.data;
+          displayAgents(agents);
+        } catch (error) {
+          console.error("Nem sikerült betölteni az agenteket:", error);
+          list.innerHTML = '<p style="text-align:center; color:#ff4655;">Hiba történt az adatok betöltésekor.</p>';
+        }
+      }
 
-    .card img.agent-icon {
-      width: 100px;
-      height: 100px;
-      margin: 15px auto 10px auto;
-      display: block;
-      border-radius: 50%;
-      box-shadow: 0 4px 12px rgba(255, 70, 85, 0.6);
-      background: #111;
-    }
+      function displayAgents(agents) {
+        const list = document.getElementById("agent-list");
+        list.className = "container my-4";
+        list.innerHTML = '<div class="row g-4"></div>';
+        const row = list.querySelector('.row');
 
-    .card-body {
-      flex-grow: 1;
-      padding: 0 20px 20px 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
+        agents.forEach(agent => {
+          const card = document.createElement("div");
+          card.className = "col-md-6 col-lg-4";
 
-    .card-title {
-      font-weight: 800;
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-      text-align: center;
-      color: #ff4655;
-      text-shadow: 0 0 6px rgba(255, 70, 85, 0.6);
-    }
-
-    .card-text {
-      flex-grow: 1;
-      font-size: 1rem;
-      color: #ddd;
-      margin-bottom: 15px;
-      text-align: center;
-      line-height: 1.4;
-    }
-  </style>
-</head>
-<body>
-  <h1>Valorant Agents</h1>
-  <ul id="agent-list"></ul>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      fetch('https://valorant-api.com/v1/agents?isPlayableCharacter=true')
-        .then(response => response.json())
-        .then(data => {
-          const agents = data.data;
-          const agentList = document.getElementById('agent-list');
-
-          agents.forEach(agent => {
-            const li = document.createElement('li');
-            li.classList.add('card');
-
-            li.innerHTML = `
-              <img class="agent-icon" src="${agent.displayIcon}" alt="${agent.displayName}" />
-              <div class="card-body">
-                <h2 class="card-title">${agent.displayName}</h2>
-                <p class="card-text">${agent.description}</p>
+          card.innerHTML = `
+            <div class="card h-100 shadow border-0 rounded-4">
+              <img src="${agent.fullPortrait || agent.displayIcon}" class="card-img-top" alt="${agent.displayName}" style="height: 400px; object-fit: contain; background: #000;">
+              <div class="card-body d-flex flex-column justify-content-between">
+                <div>
+                  <h5 class="card-title">${agent.displayName}</h5>
+                  <p class="card-text">${agent.description}</p>
+                  ${agent.role ? `
+                    <p><img src="${agent.role.displayIcon}" alt="${agent.role.displayName}" style="height: 100px; width: 100px; margin: 0 auto;" class="mb-2">
+                    <strong>${agent.role.displayName}</strong></p>
+                  ` : ''}
+                </div>
+                <div>
+                  <h6 class="mt-3">Képességek:</h6>
+                  ${agent.abilities?.map(ability => `
+                    <div class="d-flex align-items-start mb-2">
+                      ${ability.displayIcon ? `<img src="${ability.displayIcon}" alt="${ability.displayName}" style="width:32px; height:32px;" class="me-2">` : ''}
+                      <div>
+                        <strong>${ability.displayName}</strong><br>
+                        <small>${ability.description}</small>
+                      </div>
+                    </div>
+                  `).join('')}
+                </div>
               </div>
-            `;
+            </div>
+          `;
 
-            agentList.appendChild(li);
-          });
-        })
-        .catch(err => {
-          console.error('Hiba az API hívásnál:', err);
-          const agentList = document.getElementById('agent-list');
-          agentList.innerHTML = '<p style="text-align:center; color:#ff4655;">Nem sikerült betölteni az ügynököket.</p>';
+          row.appendChild(card);
         });
-    });
-  </script>
-</body>
-</html>
+      }
+    </script>
+  </body>
+  </html>
