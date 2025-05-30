@@ -244,6 +244,10 @@ h5{
   height: 80vh;
 }
 
+.map-card{
+  padding: 20px;
+}
+
 /* FOOTER */
 footer {
   font-family: "VALORANT", Consolas, 'Courier New', monospace;
@@ -256,7 +260,7 @@ footer {
 }
 
 footer .container {
-  max-width: 1140px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
