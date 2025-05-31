@@ -18,10 +18,10 @@ const fetchWithErrorHandling = async (
 };
 
 const loadMapDetails = async (params: { uuid: string }): Promise<void> => {
-  const other= document.querySelectorAll(':not(#map-details-'+params.uuid+')') as NodeListOf<HTMLDivElement>; // Töröljük a korábbi részleteket
+  const other= document.querySelectorAll(':not(#map-details-'+params.uuid+')') as NodeListOf<HTMLDivElement>;
 other.forEach((el) => {
         if (el.id.startsWith('map-details-')) {
-        el.innerHTML = ''; // Töröljük a tartalmat
+        el.innerHTML = '';
         }
     });
   const detailsDiv = document.querySelector('#map-details-'+params.uuid) as HTMLDivElement;
@@ -38,7 +38,7 @@ other.forEach((el) => {
       <h2>${map.displayName}</h2>
       <img src="${map.displayIcon}" alt="${map.displayName}" class="img-fluid mb-3">
       <p><strong>Koordináták:</strong> ${map.coordinates || 'N/A'}</p>
-      <p><strong>Taktikai leírás:</strong> ${map.tacticalDescription || 'N/A'}</p>
+      <p><strong>Siteok:</strong> ${map.tacticalDescription || 'N/A'}</p>
       <h4>Calloutok:</h4>
       <ul>
         ${map.callouts ? map.callouts.slice(0,5).map((callout: any) => `<li>${callout.regionName} (${callout.superRegionName})</li>`).join('') : '<li>Nincs adat</li>'}
