@@ -36,7 +36,7 @@ other.forEach((el) => {
     }
     detailsDiv.innerHTML = `
       <h2>${map.displayName}</h2>
-      <img src="${map.splash}" alt="${map.displayName}" class="img-fluid mb-3">
+      <img src="${map.displayIcon}" alt="${map.displayName}" class="img-fluid mb-3">
       <p><strong>Koordináták:</strong> ${map.coordinates || 'N/A'}</p>
       <p><strong>Taktikai leírás:</strong> ${map.tacticalDescription || 'N/A'}</p>
       <h4>Calloutok:</h4>
@@ -64,7 +64,7 @@ const loadMaps = async (): Promise<void> => {
             (map: any) => `
                   <div class="col">
                     <div class="card h-100 map-card" data-uuid="${map.uuid}" style="cursor:pointer;">
-                      <img src="${map.displayIcon}" class="card-img-top" alt="${map.displayName}" style="object-fit: cover; height: 200px;">
+                      <img src="${map.splash}" class="card-img-top" alt="${map.displayName}" style="object-fit: cover; height: 200px;">
                       <div class="card-body">
                         <h5 class="card-title">${map.displayName}</h5>
                         ${map.coordinates ? `<p class="card-text"><small >Coordinates: ${map.coordinates}</small></p>` : ''}
