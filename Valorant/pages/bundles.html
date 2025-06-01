@@ -3,19 +3,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Valorant Fegyverek - Részletes</title>
+  <title>Valorant Csomagok</title>
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css" />
+
   <style>
-    .skin-img { height: 50px; margin-right: 5px; border-radius: 5px; }
-    .weapon-stats { font-size: 0.9rem; }
-    .weapon-card-body { min-height: 300px; }
+    body {
+      background-color: #121212;
+      color: #ffffff;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      text-align: center;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      color: #ff4655;
+      letter-spacing: 1px;
+    }
+
+    .search-container {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    #search-bar {
+      background-color: #1e1e1e;
+      border: none;
+      color: #fff;
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 10px rgba(255, 70, 85, 0.3);
+    }
+
+    #search-bar::placeholder {
+      color: #bbb;
+    }
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
     <div class="container">
       <a class="navbar-brand" href="../index.html">
         <img src="../images/logo.png" alt="Valorant" height="60" />
@@ -28,43 +59,44 @@
           <li class="nav-item"><a class="nav-link" href="../index.html">Főoldal</a></li>
           <li class="nav-item"><a class="nav-link" href="guns.html">Fegyverek</a></li>
           <li class="nav-item"><a class="nav-link" href="agents.html">Agentek</a></li>
-          <li class="nav-item"><a class="nav-link" href="../pages/maps.html">Mapok</a></li>
-          <li class="nav-item"><a class="nav-link active" href="../pages/bundles.html">Csomagok</a></li>
+          <li class="nav-item"><a class="nav-link" href="maps.html">Mapok</a></li>
+          <li class="nav-item"><a class="nav-link active" href="bundles.html">Csomagok</a></li>
         </ul>
       </div>
     </div>
   </nav>
-<h1 style="text-align: center;padding: 1rem;">Vásárlási csomagok</h1>
-<div id="bundles-list">
-</div>
 
-<footer>
-    <div class="container">
-      <div class="row align-items-center mb-3">
-        <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
-          <img src="../images/logo.png" alt="Valorant" height="40" class="me-2 align-middle" />
-          <span class="fw-bold fs-5 align-middle">Valorant Fegyverek</span>
-        </div>
-        <div class="col-md-6 text-center text-md-end">
-          <a href="../index.html" class="me-3">Fooldal</a>
-          <a href="guns.html" class="me-3">Fegyverek</a>
-          <a href="agents.html" class="me-3">Agentek</a>
-          <a href="maps.html">Mapok</a>
-          <a href="bundles.html">Csomagok</a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col text-center small">
-          &copy; 2025 valorant
-        </div>
+
+  <h1>Vásárlási csomagok</h1>
+
+
+  <div class="search-container px-3">
+    <input type="text" id="search-bar" class="form-control" placeholder="Keresés csomag név alapján...">
+  </div>
+
+
+  <div id="bundles-list" class="container my-4"></div>
+
+
+  <footer>
+    <div class="container text-center">
+      <img src="../images/logo.png" alt="Valorant" height="40" class="mb-2" />
+      <div class="mb-2">© 2025 Valorant Fegyverek</div>
+      <div>
+        <a href="../index.html" class="me-3">Főoldal</a>
+        <a href="guns.html" class="me-3">Fegyverek</a>
+        <a href="agents.html" class="me-3">Agentek</a>
+        <a href="maps.html" class="me-3">Mapok</a>
+        <a href="bundles.html">Csomagok</a>
       </div>
     </div>
   </footer>
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="../ts/bundles.ts"></script>
 
-
 </body>
 </html>
+
